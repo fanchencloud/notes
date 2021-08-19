@@ -1,17 +1,17 @@
 ---------------------------
-Spring-boot ÊÂÎñ			|
+Spring-boot äº‹åŠ¡			|
 ---------------------------
-	# spring µÄÊÂÎñ»úÖÆÌá¹©ÁËÒ»¸öÍ³Ò»µÄ½Ó¿Ú
+	# spring çš„äº‹åŠ¡æœºåˆ¶æä¾›äº†ä¸€ä¸ªç»Ÿä¸€çš„æ¥å£
 		PlatformTransactionManager 
 	
-	# ½Ó¿ÚµÄÊµÏÖ
-		JDBC		-->		DataSourceTransactionManager		//Í¬Ñù»¹ÊÊºÏMyBatis
+	# æ¥å£çš„å®ç°
+		JDBC		-->		DataSourceTransactionManager		//åŒæ ·è¿˜é€‚åˆMyBatis
 		JPA			-->		JpaTransactionManager				//JPA
-		Hibernate	-->		HibernateTransactionManager			//ÊÊºÏHibernate3.0
+		Hibernate	-->		HibernateTransactionManager			//é€‚åˆHibernate3.0
 		JDO			-->		JdoTransactionManager
-		·Ö²¼Ê½ÊÂÎñ	-->		JtaTransactionManager				//JTA
+		åˆ†å¸ƒå¼äº‹åŠ¡	-->		JtaTransactionManager				//JTA
 
-	# ÔÚ³ÌĞòÖĞ¶¨ÒåÊÂÎñ¹ÜÀíÆ÷
+	# åœ¨ç¨‹åºä¸­å®šä¹‰äº‹åŠ¡ç®¡ç†å™¨
 		@Bean
 		public PlatformTransactionManager platformTransactionManager(){
 			DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager();
@@ -19,44 +19,44 @@ Spring-boot ÊÂÎñ			|
 			return dataSourceTransactionManager;
 		}
 	
-	# ÉùÃ÷Ê½ÊÂÎñ
-		* spring Ö§³ÖÉùÃ÷Ê½ÊÂÎñ.Ê¹ÓÃ×¢½â @Transactional
-		* ¸Ã×¢½âµÄÏêÏ¸ÊôĞÔ,¿´springµÄ×ÊÁÏ
+	# å£°æ˜å¼äº‹åŠ¡
+		* spring æ”¯æŒå£°æ˜å¼äº‹åŠ¡.ä½¿ç”¨æ³¨è§£ @Transactional
+		* è¯¥æ³¨è§£çš„è¯¦ç»†å±æ€§,çœ‹springçš„èµ„æ–™
 	
-	# ÆôÓÃÉùÃ÷Ê½ÊÂÎñ
-		* springÌáÁËÒ»¸ö×¢½â @EnableTransactionManagement
-		* ×¢½âÔÚÅäÖÃÅãÉÏ,À´¿ªÇ¹ÉùÃ÷Ê½ÊÂÎñµÄÖ§³Ö
-		* Ê¹ÓÃ¸Ã×¢½âºó,springÈİÆ÷»á×Ô¶¯É¨Ãè×¢½â @Transactional µÄ·½·¨ºÍÀà
+	# å¯ç”¨å£°æ˜å¼äº‹åŠ¡
+		* springæäº†ä¸€ä¸ªæ³¨è§£ @EnableTransactionManagement
+		* æ³¨è§£åœ¨é…ç½®é™ªä¸Š,æ¥å¼€æªå£°æ˜å¼äº‹åŠ¡çš„æ”¯æŒ
+		* ä½¿ç”¨è¯¥æ³¨è§£å,springå®¹å™¨ä¼šè‡ªåŠ¨æ‰«ææ³¨è§£ @Transactional çš„æ–¹æ³•å’Œç±»
 			@Configuration
 			@EnableTransactionManagement
 			public class transactionManagementAutoConfiguration		{
 			}
-		* ĞèÒªÒıÈëÒÀÀµ
+		* éœ€è¦å¼•å…¥ä¾èµ–
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-tx</artifactId>
 			</dependency>
 
-		* ¸Ã×¢½â¿ÉÒÔ±êÊ¶ÔÚ·½·¨ÉÏ
-		* Ò²¿ÉÒÔ±êÊ¶ÔÚÀàÉÏ,ÄÇÃ´¸ÃÀàÖĞËùÓĞµÄ public ·½·¨,¶¼»áÓĞÊÂÎñ
+		* è¯¥æ³¨è§£å¯ä»¥æ ‡è¯†åœ¨æ–¹æ³•ä¸Š
+		* ä¹Ÿå¯ä»¥æ ‡è¯†åœ¨ç±»ä¸Š,é‚£ä¹ˆè¯¥ç±»ä¸­æ‰€æœ‰çš„ public æ–¹æ³•,éƒ½ä¼šæœ‰äº‹åŠ¡
 		
-	# spring bootµÄÊÂÎñÖ§³Ö
-		* µ±Ê¹ÓÃJDBC×÷ÎªÊı¾İ·ÃÎÊ¼¼ÊõµÄÊ±ºò,spring bootÎªÎÒÃÇ¶¨ÒåÁË PlatformTransactionManager µÄÊµÏÖ DataSourceTransactionManager,Ô´Âë:DataSourceTransactionManagerAutoConfiguration
-		* µ±Ê¹ÓÃJPA....
-		* spring boot×¨ÃÅÓÃ»§ÅäÖÃÊÂÎñµÄÀàÊÇ:org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration
-		* 'spring bootÖĞ²»ĞèÒªÏÔÊ¾¿ªÆôÊ¹ÓÃ'@EnableTransactionManagement ×¢½â,'Ö±½ÓÔÚÄÄÀï±ê×¢'
+	# spring bootçš„äº‹åŠ¡æ”¯æŒ
+		* å½“ä½¿ç”¨JDBCä½œä¸ºæ•°æ®è®¿é—®æŠ€æœ¯çš„æ—¶å€™,spring bootä¸ºæˆ‘ä»¬å®šä¹‰äº† PlatformTransactionManager çš„å®ç° DataSourceTransactionManager,æºç :DataSourceTransactionManagerAutoConfiguration
+		* å½“ä½¿ç”¨JPA....
+		* spring bootä¸“é—¨ç”¨æˆ·é…ç½®äº‹åŠ¡çš„ç±»æ˜¯:org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration
+		* 'spring bootä¸­ä¸éœ€è¦æ˜¾ç¤ºå¼€å¯ä½¿ç”¨'@EnableTransactionManagement æ³¨è§£,'ç›´æ¥åœ¨å“ªé‡Œæ ‡æ³¨'
 	
-		* Ìí¼ÓÒÀÀµ
+		* æ·»åŠ ä¾èµ–
 			 <dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-tx</artifactId>
 			</dependency>
 		
-		* Ìí¼Ó×¢½â
+		* æ·»åŠ æ³¨è§£
 			@EnableTransactionManagement
 	
-	# Ê¹ÓÃ¼àÌıÆ÷, ¼àÌıÊÂÎñµÄ×´Ì¬
-		* Ê¹ÓÃ:@TransactionalEventListener ×¢½â, ±êÊ¶ÔÚ¼àÌı·½·¨
+	# ä½¿ç”¨ç›‘å¬å™¨, ç›‘å¬äº‹åŠ¡çš„çŠ¶æ€
+		* ä½¿ç”¨:@TransactionalEventListener æ³¨è§£, æ ‡è¯†åœ¨ç›‘å¬æ–¹æ³•
 			@Target({ElementType.METHOD, ElementType.ANNOTATION_TYPE})
 			@Retention(RetentionPolicy.RUNTIME)
 			@Documented
@@ -78,7 +78,7 @@ Spring-boot ÊÂÎñ			|
 
 			}
 			
-			* phase Ã¶¾Ù, ±íÊ¾¸ĞĞËÈ¤µÄÊÂ¼ş
+			* phase æšä¸¾, è¡¨ç¤ºæ„Ÿå…´è¶£çš„äº‹ä»¶
 				BEFORE_COMMIT,
 				AFTER_COMMIT,
 				AFTER_ROLLBACK,
